@@ -10,6 +10,10 @@
     "toggle-pin": {
       "suggested_key": { "default": "Alt+Shift+P" },
       "description": "Toggle tab pin"
+    },
+    "console": {
+      "suggested_key": { "default": "Alt+Shift+C" },
+      "description": "console.log"
     }
   },
   "manifest_version": 2
