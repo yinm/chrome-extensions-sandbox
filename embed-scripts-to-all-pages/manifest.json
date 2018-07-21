@@ -1,0 +1,27 @@
+{
+  "name": "Embed scripts",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "this is an example",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "embedded-script.js"
+  ],
+  "permissions": [
+    "<all_urls>"
+  ]
+}
