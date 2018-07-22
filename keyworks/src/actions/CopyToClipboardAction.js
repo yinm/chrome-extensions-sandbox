@@ -17,8 +17,6 @@ function format(template, variables) {
 }
 
 export default class CopyToClipboardAction extends Action {
-  static hasValue = true
-
   run() {
     copyToClipboard(
       format(
