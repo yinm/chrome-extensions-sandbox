@@ -97,7 +97,7 @@ chrome.runtime.onInstalled.addListener(function () {
   var defaultSettings = {
     actionDefinitions: {
       'Ctrl+L': {
-        value: '${title} ${url}',
+        value: '${title}\n${url}',
         type: 'CopyToClipboard'
       },
       'Ctrl+M': {
