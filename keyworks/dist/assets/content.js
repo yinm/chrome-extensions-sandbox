@@ -94,7 +94,40 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = detectKeyString;\n\nvar _keyStringMap = __webpack_require__(/*! ./keyStringMap.js */ \"./node_modules/key-string/keyStringMap.js\");\n\nvar _keyStringMap2 = _interopRequireDefault(_keyStringMap);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n/**\n * @param event {KeyboardEvent}\n * @returns {String}\n */\nfunction detectKeyString(event) {\n  var keyString = \"\";\n  if (event.shiftKey) {\n    keyString = \"Shift+\" + keyString;\n  }\n  if (event.ctrlKey) {\n    keyString = \"Ctrl+\" + keyString;\n  }\n  if (event.altKey) {\n    keyString = \"Alt+\" + keyString;\n  }\n  if (event.metaKey) {\n    keyString = \"Meta+\" + keyString;\n  }\n  keyString += _keyStringMap2.default[event.keyCode] || \"Unknown\";\n  return keyString;\n}\n\n//# sourceURL=webpack:///./node_modules/key-string/detectKeyString.js?");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = detectKeyString;
+
+var _keyStringMap = __webpack_require__(/*! ./keyStringMap.js */ "./node_modules/key-string/keyStringMap.js");
+
+var _keyStringMap2 = _interopRequireDefault(_keyStringMap);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @param event {KeyboardEvent}
+ * @returns {String}
+ */
+function detectKeyString(event) {
+  var keyString = "";
+  if (event.shiftKey) {
+    keyString = "Shift+" + keyString;
+  }
+  if (event.ctrlKey) {
+    keyString = "Ctrl+" + keyString;
+  }
+  if (event.altKey) {
+    keyString = "Alt+" + keyString;
+  }
+  if (event.metaKey) {
+    keyString = "Meta+" + keyString;
+  }
+  keyString += _keyStringMap2.default[event.keyCode] || "Unknown";
+  return keyString;
+}
 
 /***/ }),
 
@@ -106,7 +139,25 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.keyStringMap = exports.detectKeyString = undefined;\n\nvar _detectKeyString = __webpack_require__(/*! ./detectKeyString.js */ \"./node_modules/key-string/detectKeyString.js\");\n\nvar _detectKeyString2 = _interopRequireDefault(_detectKeyString);\n\nvar _keyStringMap = __webpack_require__(/*! ./keyStringMap.js */ \"./node_modules/key-string/keyStringMap.js\");\n\nvar _keyStringMap2 = _interopRequireDefault(_keyStringMap);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.detectKeyString = _detectKeyString2.default;\nexports.keyStringMap = _keyStringMap2.default;\n\n//# sourceURL=webpack:///./node_modules/key-string/index.js?");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.keyStringMap = exports.detectKeyString = undefined;
+
+var _detectKeyString = __webpack_require__(/*! ./detectKeyString.js */ "./node_modules/key-string/detectKeyString.js");
+
+var _detectKeyString2 = _interopRequireDefault(_detectKeyString);
+
+var _keyStringMap = __webpack_require__(/*! ./keyStringMap.js */ "./node_modules/key-string/keyStringMap.js");
+
+var _keyStringMap2 = _interopRequireDefault(_keyStringMap);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.detectKeyString = _detectKeyString2.default;
+exports.keyStringMap = _keyStringMap2.default;
 
 /***/ }),
 
@@ -118,7 +169,90 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar keyStringMap = {\n  8: \"BackSpace\",\n  9: \"Tab\",\n  13: \"Return\",\n  27: \"Esc\",\n  32: \"Space\",\n  33: \"PageUp\",\n  34: \"PageDown\",\n  35: \"End\",\n  36: \"Home\",\n  37: \"Left\",\n  38: \"Up\",\n  39: \"Right\",\n  40: \"Down\",\n  45: \"Insert\",\n  46: \"Delete\",\n  48: \"0\",\n  49: \"1\",\n  50: \"2\",\n  51: \"3\",\n  52: \"4\",\n  53: \"5\",\n  54: \"6\",\n  55: \"7\",\n  56: \"8\",\n  57: \"9\",\n  65: \"A\",\n  66: \"B\",\n  67: \"C\",\n  68: \"D\",\n  69: \"E\",\n  70: \"F\",\n  71: \"G\",\n  72: \"H\",\n  73: \"I\",\n  74: \"J\",\n  75: \"K\",\n  76: \"L\",\n  77: \"M\",\n  78: \"N\",\n  79: \"O\",\n  80: \"P\",\n  81: \"Q\",\n  82: \"R\",\n  83: \"S\",\n  84: \"T\",\n  85: \"U\",\n  86: \"V\",\n  87: \"W\",\n  88: \"X\",\n  89: \"Y\",\n  90: \"Z\",\n  112: \"F1\",\n  113: \"F2\",\n  114: \"F3\",\n  115: \"F4\",\n  116: \"F5\",\n  117: \"F6\",\n  118: \"F7\",\n  119: \"F8\",\n  120: \"F9\",\n  121: \"F10\",\n  122: \"F11\",\n  123: \"F12\",\n  186: \":\",\n  187: \";\",\n  188: \",\",\n  189: \"-\",\n  190: \".\",\n  191: \"/\",\n  192: \"@\",\n  219: \"[\",\n  220: \"\\\\\",\n  221: \"]\",\n  222: \"^\",\n  226: \"\\\\\"\n};\n\nexports.default = keyStringMap;\n\n//# sourceURL=webpack:///./node_modules/key-string/keyStringMap.js?");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var keyStringMap = {
+  8: "BackSpace",
+  9: "Tab",
+  13: "Return",
+  27: "Esc",
+  32: "Space",
+  33: "PageUp",
+  34: "PageDown",
+  35: "End",
+  36: "Home",
+  37: "Left",
+  38: "Up",
+  39: "Right",
+  40: "Down",
+  45: "Insert",
+  46: "Delete",
+  48: "0",
+  49: "1",
+  50: "2",
+  51: "3",
+  52: "4",
+  53: "5",
+  54: "6",
+  55: "7",
+  56: "8",
+  57: "9",
+  65: "A",
+  66: "B",
+  67: "C",
+  68: "D",
+  69: "E",
+  70: "F",
+  71: "G",
+  72: "H",
+  73: "I",
+  74: "J",
+  75: "K",
+  76: "L",
+  77: "M",
+  78: "N",
+  79: "O",
+  80: "P",
+  81: "Q",
+  82: "R",
+  83: "S",
+  84: "T",
+  85: "U",
+  86: "V",
+  87: "W",
+  88: "X",
+  89: "Y",
+  90: "Z",
+  112: "F1",
+  113: "F2",
+  114: "F3",
+  115: "F4",
+  116: "F5",
+  117: "F6",
+  118: "F7",
+  119: "F8",
+  120: "F9",
+  121: "F10",
+  122: "F11",
+  123: "F12",
+  186: ":",
+  187: ";",
+  188: ",",
+  189: "-",
+  190: ".",
+  191: "/",
+  192: "@",
+  219: "[",
+  220: "\\",
+  221: "]",
+  222: "^",
+  226: "\\"
+};
+
+exports.default = keyStringMap;
 
 /***/ }),
 
@@ -130,7 +264,15 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_CopyToClipboardAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions/CopyToClipboardAction */ \"./src/actions/CopyToClipboardAction.js\");\n\n\nvar actions = {\n  CopyToClipboard: _actions_CopyToClipboardAction__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (actions);\n\n//# sourceURL=webpack:///./src/actions.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_CopyToClipboardAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions/CopyToClipboardAction */ "./src/actions/CopyToClipboardAction.js");
+
+
+var actions = {
+  CopyToClipboard: _actions_CopyToClipboardAction__WEBPACK_IMPORTED_MODULE_0__["default"]
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (actions);
 
 /***/ }),
 
@@ -142,7 +284,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _act
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Action = function () {\n  function Action(_ref) {\n    var value = _ref.value;\n\n    _classCallCheck(this, Action);\n\n    this.value = value;\n  }\n\n  _createClass(Action, [{\n    key: \"run\",\n    value: function run() {}\n  }]);\n\n  return Action;\n}();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Action);\n\n//# sourceURL=webpack:///./src/actions/Action.js?");
+__webpack_require__.r(__webpack_exports__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Action = function () {
+  function Action(_ref) {
+    var value = _ref.value;
+
+    _classCallCheck(this, Action);
+
+    this.value = value;
+  }
+
+  _createClass(Action, [{
+    key: "run",
+    value: function run() {}
+  }]);
+
+  return Action;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Action);
 
 /***/ }),
 
@@ -154,7 +318,57 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar _createClass = function (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Action */ \"./src/actions/Action.js\");\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\n\n\nfunction copyToClipboard(string) {\n  var textarea = document.createElement('textarea');\n  textarea.style.cssText = 'position: absolute; left: -100%;';\n  document.body.appendChild(textarea);\n  textarea.value = string;\n  textarea.select();\n  document.execCommand('copy');\n  document.body.removeChild(textarea);\n}\n\nfunction format(template, variables) {\n  return Object.keys(variables).reduce(function (result, variableName) {\n    return result.replace('${' + variableName + '}', variables[variableName]);\n  }, template);\n}\n\nvar CopyToClipboardAction = function (_Action) {\n  _inherits(CopyToClipboardAction, _Action);\n\n  function CopyToClipboardAction() {\n    _classCallCheck(this, CopyToClipboardAction);\n\n    return _possibleConstructorReturn(this, (CopyToClipboardAction.__proto__ || Object.getPrototypeOf(CopyToClipboardAction)).apply(this, arguments));\n  }\n\n  _createClass(CopyToClipboardAction, [{\n    key: 'run',\n    value: function run() {\n      copyToClipboard(format(this.value, {\n        title: document.title,\n        url: location.href\n      }));\n    }\n  }]);\n\n  return CopyToClipboardAction;\n}(_Action__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (CopyToClipboardAction);\n\n//# sourceURL=webpack:///./src/actions/CopyToClipboardAction.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Action */ "./src/actions/Action.js");
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+function copyToClipboard(string) {
+  var textarea = document.createElement('textarea');
+  textarea.style.cssText = 'position: absolute; left: -100%;';
+  document.body.appendChild(textarea);
+  textarea.value = string;
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
+}
+
+function format(template, variables) {
+  return Object.keys(variables).reduce(function (result, variableName) {
+    return result.replace('${' + variableName + '}', variables[variableName]);
+  }, template);
+}
+
+var CopyToClipboardAction = function (_Action) {
+  _inherits(CopyToClipboardAction, _Action);
+
+  function CopyToClipboardAction() {
+    _classCallCheck(this, CopyToClipboardAction);
+
+    return _possibleConstructorReturn(this, (CopyToClipboardAction.__proto__ || Object.getPrototypeOf(CopyToClipboardAction)).apply(this, arguments));
+  }
+
+  _createClass(CopyToClipboardAction, [{
+    key: 'run',
+    value: function run() {
+      copyToClipboard(format(this.value, {
+        title: document.title,
+        url: location.href
+      }));
+    }
+  }]);
+
+  return CopyToClipboardAction;
+}(_Action__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (CopyToClipboardAction);
 
 /***/ }),
 
@@ -166,8 +380,34 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Act
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var key_string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! key-string */ \"./node_modules/key-string/index.js\");\n/* harmony import */ var key_string__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(key_string__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ \"./src/actions.js\");\n\n\n\nvar getSettings = function getSettings() {\n  return new Promise(function (resolve) {\n    chrome.storage.sync.get('settings', function (_ref) {\n      var settings = _ref.settings;\n\n      resolve(settings);\n    });\n  });\n};\n\ngetSettings().then(function (settings) {\n  window.addEventListener('keydown', function (event) {\n    var keyString = Object(key_string__WEBPACK_IMPORTED_MODULE_0__[\"detectKeyString\"])(event);\n    var actionDefinition = settings.actionDefinitions[keyString];\n    if (actionDefinition) {\n      new _actions__WEBPACK_IMPORTED_MODULE_1__[\"default\"][actionDefinition.type](actionDefinition).run();\n    }\n  });\n});\n\n//# sourceURL=webpack:///./src/content.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var key_string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! key-string */ "./node_modules/key-string/index.js");
+/* harmony import */ var key_string__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(key_string__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./src/actions.js");
+
+
+
+var getSettings = function getSettings() {
+  return new Promise(function (resolve) {
+    chrome.storage.sync.get('settings', function (_ref) {
+      var settings = _ref.settings;
+
+      resolve(settings);
+    });
+  });
+};
+
+getSettings().then(function (settings) {
+  window.addEventListener('keydown', function (event) {
+    var keyString = Object(key_string__WEBPACK_IMPORTED_MODULE_0__["detectKeyString"])(event);
+    var actionDefinition = settings.actionDefinitions[keyString];
+    if (actionDefinition) {
+      new _actions__WEBPACK_IMPORTED_MODULE_1__["default"][actionDefinition.type](actionDefinition).run();
+    }
+  });
+});
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=content.js.map

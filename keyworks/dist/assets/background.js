@@ -93,8 +93,30 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("chrome.runtime.onInstalled.addListener(function () {\n  var defaultSettings = {\n    actionDefinitions: {\n      'Ctrl+L': {\n        template: '${title} ${url}',\n        type: 'CopyToClipboard'\n      },\n      'Ctrl+M': {\n        template: '[${title}](${url})',\n        type: 'CopyToClipboard'\n      }\n    }\n  };\n\n  chrome.storage.sync.get('settings', function (_ref) {\n    var settings = _ref.settings;\n\n    if (!settings) {\n      chrome.storage.sync.set({ settings: defaultSettings });\n    }\n  });\n});\n\n//# sourceURL=webpack:///./src/background.js?");
+chrome.runtime.onInstalled.addListener(function () {
+  var defaultSettings = {
+    actionDefinitions: {
+      'Ctrl+L': {
+        template: '${title} ${url}',
+        type: 'CopyToClipboard'
+      },
+      'Ctrl+M': {
+        template: '[${title}](${url})',
+        type: 'CopyToClipboard'
+      }
+    }
+  };
+
+  chrome.storage.sync.get('settings', function (_ref) {
+    var settings = _ref.settings;
+
+    if (!settings) {
+      chrome.storage.sync.set({ settings: defaultSettings });
+    }
+  });
+});
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=background.js.map
