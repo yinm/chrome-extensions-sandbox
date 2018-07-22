@@ -97,11 +97,11 @@ chrome.runtime.onInstalled.addListener(function () {
   var defaultSettings = {
     actionDefinitions: {
       'Ctrl+L': {
-        template: '${title} ${url}',
+        value: '${title} ${url}',
         type: 'CopyToClipboard'
       },
       'Ctrl+M': {
-        template: '[${title}](${url})',
+        value: '[${title}](${url})',
         type: 'CopyToClipboard'
       }
     }
