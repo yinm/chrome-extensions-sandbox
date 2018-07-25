@@ -106,8 +106,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'key_setting',
@@ -146,6 +144,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -153,12 +155,23 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       message: 'Hello Vue',
-      keyString: 'Ctrl-L'
+      settings: {},
+      keyStrings: []
     };
   },
 
   components: {
     'key-setting': _KeySetting__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    chrome.storage.sync.get('settings', function (_ref) {
+      var settings = _ref.settings;
+
+      _this.settings = settings;
+      _this.keyStrings = Object.keys(_this.settings.actionDefinitions);
+    });
   }
 });
 
@@ -753,12 +766,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("tbody", [
-    _c("tr", [
-      _c("td", [_c("kbd", [_vm._v(_vm._s(_vm.keyString))])]),
-      _vm._v(" "),
-      _c("td", [_c("button", { on: { click: _vm.onDelete } }, [_vm._v("x")])])
-    ])
+  return _c("tr", [
+    _c("td", [_c("kbd", [_vm._v(_vm._s(_vm.keyString))])]),
+    _vm._v(" "),
+    _c("td", [_c("button", { on: { click: _vm.onDelete } }, [_vm._v("x")])])
   ])
 }
 var staticRenderFns = []
@@ -783,14 +794,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._v("\n  " + _vm._s(_vm.message) + "\n  "),
-      _c("key-setting", { attrs: { keyString: _vm.keyString } })
-    ],
-    1
-  )
+  return _c("div", [
+    _vm._v("\n  " + _vm._s(_vm.message) + "\n  "),
+    _c("table", [
+      _c(
+        "tbody",
+        _vm._l(_vm.keyStrings, function(keyString) {
+          return _c("key-setting", { attrs: { keyString: keyString } })
+        })
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

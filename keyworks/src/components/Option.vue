@@ -1,7 +1,11 @@
 <template>
   <div>
     {{ message }}
-    <key-setting :keyString="keyString"></key-setting>
+    <table>
+      <tbody>
+        <key-setting v-for="keyString in keyStrings" :keyString="keyString" />
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -12,12 +16,19 @@
     data() {
       return {
         message: 'Hello Vue',
-        keyString: 'Ctrl-L',
+        settings: {},
+        keyStrings: [],
       }
     },
     components: {
       'key-setting': KeySetting
-    }
+    },
+    mounted() {
+      chrome.storage.sync.get('settings', ({ settings }) => {
+        this.settings = settings
+        this.keyStrings = Object.keys(this.settings.actionDefinitions)
+      })
+    },
   }
 </script>
 

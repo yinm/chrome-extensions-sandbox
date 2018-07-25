@@ -1,5 +1,4 @@
 <template>
-  <tbody>
   <tr>
     <td>
       <kbd>{{ keyString }}</kbd>
@@ -8,7 +7,6 @@
       <button @click="onDelete">x</button>
     </td>
   </tr>
-  </tbody>
 </template>
 
 <script>
