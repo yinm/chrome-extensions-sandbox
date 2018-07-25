@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Options from './components/Option'
 
-vue.config.productionTip = false
+Vue.config.productionTip = false
 
 new Vue({
-  el: '#root',
+  el: '#app',
   components: { Options },
   template: '<Options />'
 })

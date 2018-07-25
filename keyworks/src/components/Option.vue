@@ -9,9 +9,3 @@
     })
   }
 </script>
-
-<style>
-  div {
-    color: #0ff;
-  }
-</style>
