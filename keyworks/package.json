@@ -2,16 +2,21 @@
   "scripts": {
     "build": "npm run build:clean && npm run build:copy && npm run build:webpack",
     "build:clean": "rm -rf ./dist || true && mkdir -p ./dist",
-    "build:copy": "cp -r ./src/images ./src/manifest.json ./dist",
+    "build:copy": "cp -r ./src/images ./src/manifest.json ./src/options.html ./dist",
     "build:webpack": "webpack"
   },
   "dependencies": {
-    "key-string": "^0.4.0"
+    "key-string": "^0.4.0",
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "vue-loader": "^15.2.6",
+    "vue-style-loader": "^4.1.1",
+    "vue-template-compiler": "^2.5.16",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0"
   }
