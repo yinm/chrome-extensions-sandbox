@@ -4,7 +4,8 @@ module.exports = {
   mode: 'development',
   entry: {
     background: './src/background.js',
-    content: './src/content.js'
+    content: './src/content.js',
+    options: './src/options.js'
   },
   output: {
     filename: '[name].js',
