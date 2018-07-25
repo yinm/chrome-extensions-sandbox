@@ -170,8 +170,7 @@ __webpack_require__.r(__webpack_exports__);
       message: 'Hello Vue',
       settings: {
         actionDefinitions: {}
-      },
-      keyStrings: []
+      }
     };
   },
 
@@ -185,13 +184,13 @@ __webpack_require__.r(__webpack_exports__);
       var settings = _ref.settings;
 
       _this.settings = settings;
-      _this.keyStrings = Object.keys(_this.settings.actionDefinitions);
     });
   },
 
   methods: {
-    onDelete: function onDelete(value) {
-      alert('parent delete ' + value);
+    onDelete: function onDelete(keyString) {
+      this.$delete(this.settings.actionDefinitions, keyString);
+      chrome.storage.sync.set({ settings: this.settings });
     }
   }
 });
@@ -824,7 +823,9 @@ var render = function() {
     _c("table", [
       _c(
         "tbody",
-        _vm._l(_vm.keyStrings, function(keyString) {
+        _vm._l(Object.keys(_vm.settings.actionDefinitions), function(
+          keyString
+        ) {
           return _c("key-setting", {
             key: keyString,
             attrs: {

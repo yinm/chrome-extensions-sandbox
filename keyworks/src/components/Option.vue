@@ -4,7 +4,7 @@
     <table>
       <tbody>
         <key-setting
-          v-for="keyString in keyStrings"
+          v-for="keyString in Object.keys(settings.actionDefinitions)"
           :key="keyString"
           :keyString="keyString"
           :actionDefinitions="settings.actionDefinitions[keyString]"
@@ -25,7 +25,6 @@
         settings: {
           actionDefinitions: {},
         },
-        keyStrings: [],
       }
     },
     components: {
@@ -34,12 +33,12 @@
     mounted() {
       chrome.storage.sync.get('settings', ({ settings }) => {
         this.settings = settings
-        this.keyStrings = Object.keys(this.settings.actionDefinitions)
       })
     },
     methods: {
-      onDelete(value) {
-        alert(`parent delete ${value}`)
+      onDelete(keyString) {
+        this.$delete(this.settings.actionDefinitions, keyString)
+        chrome.storage.sync.set({ settings: this.settings })
       }
     }
   }
