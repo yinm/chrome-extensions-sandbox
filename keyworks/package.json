@@ -6,7 +6,8 @@
     "build:webpack": "webpack"
   },
   "dependencies": {
-    "key-string": "^0.4.0"
+    "key-string": "^0.4.0",
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
