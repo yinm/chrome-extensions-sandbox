@@ -3,7 +3,11 @@
     {{ message }}
     <table>
       <tbody>
-        <key-setting v-for="keyString in keyStrings" :keyString="keyString" />
+        <key-setting
+          v-for="keyString in keyStrings"
+          :keyString="keyString"
+          :actionDefinitions="actionDefinitions[keyString]"
+        />
       </tbody>
     </table>
   </div>
@@ -18,6 +22,7 @@
         message: 'Hello Vue',
         settings: {},
         keyStrings: [],
+        actionDefinitions: {},
       }
     },
     components: {
@@ -27,6 +32,7 @@
       chrome.storage.sync.get('settings', ({ settings }) => {
         this.settings = settings
         this.keyStrings = Object.keys(this.settings.actionDefinitions)
+        this.actionDefinitions = this.settings.actionDefinitions
       })
     },
   }

@@ -106,11 +106,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'key_setting',
   props: {
-    keyString: String
+    keyString: String,
+    actionDefinitions: Object
   },
   data: function data() {
     return {
@@ -148,6 +155,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -156,7 +167,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       message: 'Hello Vue',
       settings: {},
-      keyStrings: []
+      keyStrings: [],
+      actionDefinitions: {}
     };
   },
 
@@ -171,6 +183,7 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.settings = settings;
       _this.keyStrings = Object.keys(_this.settings.actionDefinitions);
+      _this.actionDefinitions = _this.settings.actionDefinitions;
     });
   }
 });
@@ -769,6 +782,10 @@ var render = function() {
   return _c("tr", [
     _c("td", [_c("kbd", [_vm._v(_vm._s(_vm.keyString))])]),
     _vm._v(" "),
+    _c("td", [_vm._v("\n    " + _vm._s(_vm.actionDefinitions.type) + "\n  ")]),
+    _vm._v(" "),
+    _c("td", [_vm._v("\n    " + _vm._s(_vm.actionDefinitions.value) + "\n  ")]),
+    _vm._v(" "),
     _c("td", [_c("button", { on: { click: _vm.onDelete } }, [_vm._v("x")])])
   ])
 }
@@ -800,7 +817,12 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.keyStrings, function(keyString) {
-          return _c("key-setting", { attrs: { keyString: keyString } })
+          return _c("key-setting", {
+            attrs: {
+              keyString: keyString,
+              actionDefinitions: _vm.actionDefinitions[keyString]
+            }
+          })
         })
       )
     ])
