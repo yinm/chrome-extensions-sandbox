@@ -7,7 +7,7 @@
           v-for="keyString in keyStrings"
           :key="keyString"
           :keyString="keyString"
-          :actionDefinitions="actionDefinitions[keyString]"
+          :actionDefinitions="settings.actionDefinitions[keyString]"
           @child-on-delete="onDelete"
         />
       </tbody>
@@ -22,9 +22,10 @@
     data() {
       return {
         message: 'Hello Vue',
-        settings: {},
+        settings: {
+          actionDefinitions: {},
+        },
         keyStrings: [],
-        actionDefinitions: {},
       }
     },
     components: {
@@ -34,7 +35,6 @@
       chrome.storage.sync.get('settings', ({ settings }) => {
         this.settings = settings
         this.keyStrings = Object.keys(this.settings.actionDefinitions)
-        this.actionDefinitions = this.settings.actionDefinitions
       })
     },
     methods: {

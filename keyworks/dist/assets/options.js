@@ -127,7 +127,6 @@ __webpack_require__.r(__webpack_exports__);
 
   methods: {
     onDelete: function onDelete() {
-      console.log(this.actionDefinitions);
       this.$emit('child-on-delete', this.keyString);
     }
   }
@@ -169,9 +168,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       message: 'Hello Vue',
-      settings: {},
-      keyStrings: [],
-      actionDefinitions: {}
+      settings: {
+        actionDefinitions: {}
+      },
+      keyStrings: []
     };
   },
 
@@ -186,7 +186,6 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.settings = settings;
       _this.keyStrings = Object.keys(_this.settings.actionDefinitions);
-      _this.actionDefinitions = _this.settings.actionDefinitions;
     });
   },
 
@@ -830,7 +829,7 @@ var render = function() {
             key: keyString,
             attrs: {
               keyString: keyString,
-              actionDefinitions: _vm.actionDefinitions[keyString]
+              actionDefinitions: _vm.settings.actionDefinitions[keyString]
             },
             on: { "child-on-delete": _vm.onDelete }
           })
