@@ -102,9 +102,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'key_setting',
+  props: {
+    keyString: String
+  },
   data: function data() {
     return {
       key: 'Ctrl-L'
@@ -143,9 +152,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      message: 'Hello Vue'
+      message: 'Hello Vue',
+      keyString: 'Ctrl-L'
     };
   },
+
   components: {
     'key-setting': _KeySetting__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -742,10 +753,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("span", [_vm._v(_vm._s(_vm.key))]),
-    _vm._v(" "),
-    _c("button", { on: { click: _vm.onDelete } }, [_vm._v("Delete")])
+  return _c("tbody", [
+    _c("tr", [
+      _c("td", [_c("kbd", [_vm._v(_vm._s(_vm.keyString))])]),
+      _vm._v(" "),
+      _c("td", [_c("button", { on: { click: _vm.onDelete } }, [_vm._v("x")])])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -772,7 +785,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_vm._v("\n  " + _vm._s(_vm.message) + "\n  "), _c("key-setting")],
+    [
+      _vm._v("\n  " + _vm._s(_vm.message) + "\n  "),
+      _c("key-setting", { attrs: { keyString: _vm.keyString } })
+    ],
     1
   )
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     {{ message }}
-    <key-setting></key-setting>
+    <key-setting :keyString="keyString"></key-setting>
   </div>
 </template>
 
@@ -11,7 +11,8 @@
   export default {
     data() {
       return {
-        message: 'Hello Vue'
+        message: 'Hello Vue',
+        keyString: 'Ctrl-L',
       }
     },
     components: {
