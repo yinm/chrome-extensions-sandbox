@@ -9,3 +9,9 @@
     })
   }
 </script>
+
+<style>
+  div {
+    color: #f0f;
+  }
+</style>
