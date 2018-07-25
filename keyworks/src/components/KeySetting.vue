@@ -29,7 +29,7 @@
     },
     methods: {
       onDelete() {
-        alert('deleted!!!')
+        this.$emit('child-on-delete', this.keyString)
       }
     }
   }

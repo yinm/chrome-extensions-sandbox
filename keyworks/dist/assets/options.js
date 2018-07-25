@@ -127,7 +127,8 @@ __webpack_require__.r(__webpack_exports__);
 
   methods: {
     onDelete: function onDelete() {
-      alert('deleted!!!');
+      console.log(this.actionDefinitions);
+      this.$emit('child-on-delete', this.keyString);
     }
   }
 });
@@ -144,6 +145,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _KeySetting__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KeySetting */ "./src/components/KeySetting.vue");
+//
+//
 //
 //
 //
@@ -185,6 +188,12 @@ __webpack_require__.r(__webpack_exports__);
       _this.keyStrings = Object.keys(_this.settings.actionDefinitions);
       _this.actionDefinitions = _this.settings.actionDefinitions;
     });
+  },
+
+  methods: {
+    onDelete: function onDelete(value) {
+      alert('parent delete ' + value);
+    }
   }
 });
 
@@ -818,10 +827,12 @@ var render = function() {
         "tbody",
         _vm._l(_vm.keyStrings, function(keyString) {
           return _c("key-setting", {
+            key: keyString,
             attrs: {
               keyString: keyString,
               actionDefinitions: _vm.actionDefinitions[keyString]
-            }
+            },
+            on: { "child-on-delete": _vm.onDelete }
           })
         })
       )

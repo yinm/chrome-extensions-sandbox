@@ -5,8 +5,10 @@
       <tbody>
         <key-setting
           v-for="keyString in keyStrings"
+          :key="keyString"
           :keyString="keyString"
           :actionDefinitions="actionDefinitions[keyString]"
+          @child-on-delete="onDelete"
         />
       </tbody>
     </table>
@@ -35,6 +37,11 @@
         this.actionDefinitions = this.settings.actionDefinitions
       })
     },
+    methods: {
+      onDelete(value) {
+        alert(`parent delete ${value}`)
+      }
+    }
   }
 </script>
 
