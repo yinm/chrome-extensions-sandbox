@@ -86,6 +86,51 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./src/components/InputKeySetting.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/InputKeySetting.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var key_string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! key-string */ "./node_modules/key-string/index.js");
+/* harmony import */ var key_string__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(key_string__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'input-key-setting',
+  data: function data() {
+    return {
+      keyString: ''
+    };
+  },
+
+  methods: {
+    onKeyDown: function onKeyDown(e) {
+      var keyString = Object(key_string__WEBPACK_IMPORTED_MODULE_0__["detectKeyString"])(e);
+      if (!keyString.includes('Unknown')) {
+        this.keyString = keyString;
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./src/components/KeySetting.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/KeySetting.vue?vue&type=script&lang=js& ***!
@@ -144,6 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _KeySetting__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KeySetting */ "./src/components/KeySetting.vue");
+/* harmony import */ var _InputKeySetting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputKeySetting */ "./src/components/InputKeySetting.vue");
 //
 //
 //
@@ -161,6 +207,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -175,6 +223,7 @@ __webpack_require__.r(__webpack_exports__);
   },
 
   components: {
+    InputKeySetting: _InputKeySetting__WEBPACK_IMPORTED_MODULE_1__["default"],
     'key-setting': _KeySetting__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
@@ -300,6 +349,176 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/key-string/detectKeyString.js":
+/*!****************************************************!*\
+  !*** ./node_modules/key-string/detectKeyString.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = detectKeyString;
+
+var _keyStringMap = __webpack_require__(/*! ./keyStringMap.js */ "./node_modules/key-string/keyStringMap.js");
+
+var _keyStringMap2 = _interopRequireDefault(_keyStringMap);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @param event {KeyboardEvent}
+ * @returns {String}
+ */
+function detectKeyString(event) {
+  var keyString = "";
+  if (event.shiftKey) {
+    keyString = "Shift+" + keyString;
+  }
+  if (event.ctrlKey) {
+    keyString = "Ctrl+" + keyString;
+  }
+  if (event.altKey) {
+    keyString = "Alt+" + keyString;
+  }
+  if (event.metaKey) {
+    keyString = "Meta+" + keyString;
+  }
+  keyString += _keyStringMap2.default[event.keyCode] || "Unknown";
+  return keyString;
+}
+
+/***/ }),
+
+/***/ "./node_modules/key-string/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/key-string/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.keyStringMap = exports.detectKeyString = undefined;
+
+var _detectKeyString = __webpack_require__(/*! ./detectKeyString.js */ "./node_modules/key-string/detectKeyString.js");
+
+var _detectKeyString2 = _interopRequireDefault(_detectKeyString);
+
+var _keyStringMap = __webpack_require__(/*! ./keyStringMap.js */ "./node_modules/key-string/keyStringMap.js");
+
+var _keyStringMap2 = _interopRequireDefault(_keyStringMap);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.detectKeyString = _detectKeyString2.default;
+exports.keyStringMap = _keyStringMap2.default;
+
+/***/ }),
+
+/***/ "./node_modules/key-string/keyStringMap.js":
+/*!*************************************************!*\
+  !*** ./node_modules/key-string/keyStringMap.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var keyStringMap = {
+  8: "BackSpace",
+  9: "Tab",
+  13: "Return",
+  27: "Esc",
+  32: "Space",
+  33: "PageUp",
+  34: "PageDown",
+  35: "End",
+  36: "Home",
+  37: "Left",
+  38: "Up",
+  39: "Right",
+  40: "Down",
+  45: "Insert",
+  46: "Delete",
+  48: "0",
+  49: "1",
+  50: "2",
+  51: "3",
+  52: "4",
+  53: "5",
+  54: "6",
+  55: "7",
+  56: "8",
+  57: "9",
+  65: "A",
+  66: "B",
+  67: "C",
+  68: "D",
+  69: "E",
+  70: "F",
+  71: "G",
+  72: "H",
+  73: "I",
+  74: "J",
+  75: "K",
+  76: "L",
+  77: "M",
+  78: "N",
+  79: "O",
+  80: "P",
+  81: "Q",
+  82: "R",
+  83: "S",
+  84: "T",
+  85: "U",
+  86: "V",
+  87: "W",
+  88: "X",
+  89: "Y",
+  90: "Z",
+  112: "F1",
+  113: "F2",
+  114: "F3",
+  115: "F4",
+  116: "F5",
+  117: "F6",
+  118: "F7",
+  119: "F8",
+  120: "F9",
+  121: "F10",
+  122: "F11",
+  123: "F12",
+  186: ":",
+  187: ";",
+  188: ",",
+  189: "-",
+  190: ".",
+  191: "/",
+  192: "@",
+  219: "[",
+  220: "\\",
+  221: "]",
+  222: "^",
+  226: "\\"
+};
+
+exports.default = keyStringMap;
 
 /***/ }),
 
@@ -771,6 +990,41 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/InputKeySetting.vue?vue&type=template&id=267812db&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/InputKeySetting.vue?vue&type=template&id=267812db& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("form", [
+    _c("div", [
+      _c("label", [
+        _vm._v("\n      Key\n      "),
+        _c("input", {
+          attrs: { type: "text", required: "" },
+          domProps: { value: _vm.keyString },
+          on: { keydown: _vm.onKeyDown }
+        })
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/KeySetting.vue?vue&type=template&id=35a828a1&":
 /*!****************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/KeySetting.vue?vue&type=template&id=35a828a1& ***!
@@ -818,26 +1072,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v("\n  " + _vm._s(_vm.message) + "\n  "),
-    _c("table", [
-      _c(
-        "tbody",
-        _vm._l(Object.keys(_vm.settings.actionDefinitions), function(
-          keyString
-        ) {
-          return _c("key-setting", {
-            key: keyString,
-            attrs: {
-              keyString: keyString,
-              actionDefinitions: _vm.settings.actionDefinitions[keyString]
-            },
-            on: { "child-on-delete": _vm.onDelete }
+  return _c(
+    "div",
+    [
+      _vm._v("\n  " + _vm._s(_vm.message) + "\n  "),
+      _c("table", [
+        _c(
+          "tbody",
+          _vm._l(Object.keys(_vm.settings.actionDefinitions), function(
+            keyString
+          ) {
+            return _c("key-setting", {
+              key: keyString,
+              attrs: {
+                keyString: keyString,
+                actionDefinitions: _vm.settings.actionDefinitions[keyString]
+              },
+              on: { "child-on-delete": _vm.onDelete }
+            })
           })
-        })
-      )
-    ])
-  ])
+        )
+      ]),
+      _vm._v(" "),
+      _c("input-key-setting")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12238,6 +12498,75 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+
+/***/ "./src/components/InputKeySetting.vue":
+/*!********************************************!*\
+  !*** ./src/components/InputKeySetting.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _InputKeySetting_vue_vue_type_template_id_267812db___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputKeySetting.vue?vue&type=template&id=267812db& */ "./src/components/InputKeySetting.vue?vue&type=template&id=267812db&");
+/* harmony import */ var _InputKeySetting_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputKeySetting.vue?vue&type=script&lang=js& */ "./src/components/InputKeySetting.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _InputKeySetting_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _InputKeySetting_vue_vue_type_template_id_267812db___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _InputKeySetting_vue_vue_type_template_id_267812db___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/components/InputKeySetting.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./src/components/InputKeySetting.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./src/components/InputKeySetting.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputKeySetting_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib??ref--0-0!../../node_modules/vue-loader/lib??vue-loader-options!./InputKeySetting.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./src/components/InputKeySetting.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputKeySetting_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./src/components/InputKeySetting.vue?vue&type=template&id=267812db&":
+/*!***************************************************************************!*\
+  !*** ./src/components/InputKeySetting.vue?vue&type=template&id=267812db& ***!
+  \***************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputKeySetting_vue_vue_type_template_id_267812db___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./InputKeySetting.vue?vue&type=template&id=267812db& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/InputKeySetting.vue?vue&type=template&id=267812db&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputKeySetting_vue_vue_type_template_id_267812db___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputKeySetting_vue_vue_type_template_id_267812db___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),

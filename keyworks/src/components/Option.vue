@@ -12,11 +12,13 @@
         />
       </tbody>
     </table>
+    <input-key-setting/>
   </div>
 </template>
 
 <script>
   import KeySetting from './KeySetting'
+  import InputKeySetting from './InputKeySetting'
 
   export default {
     data() {
@@ -28,6 +30,7 @@
       }
     },
     components: {
+      InputKeySetting,
       'key-setting': KeySetting
     },
     mounted() {
