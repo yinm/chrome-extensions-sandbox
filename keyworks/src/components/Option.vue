@@ -44,9 +44,17 @@
         chrome.storage.sync.set({ settings: this.settings })
       },
 
-      onSubmit(keyString, value) {
-        console.log(keyString)
-        console.log(value)
+      onSubmit(keyString, type, value) {
+        this.$set(
+          this.settings.actionDefinitions,
+          keyString,
+          {
+            type: type,
+            value: value,
+          }
+        )
+
+        chrome.storage.sync.set({ settings: this.settings })
       },
     }
   }

@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onSubmit: function onSubmit(e) {
       e.preventDefault();
-      this.$emit('child-on-submit', this.keyString, this.value);
+      this.$emit('child-on-submit', this.keyString, 'CopyToClipboard', this.value);
     },
     onKeyDown: function onKeyDown(e) {
       var keyString = Object(key_string__WEBPACK_IMPORTED_MODULE_0__["detectKeyString"])(e);
@@ -256,9 +256,13 @@ __webpack_require__.r(__webpack_exports__);
       this.$delete(this.settings.actionDefinitions, keyString);
       chrome.storage.sync.set({ settings: this.settings });
     },
-    onSubmit: function onSubmit(keyString, value) {
-      console.log(keyString);
-      console.log(value);
+    onSubmit: function onSubmit(keyString, type, value) {
+      this.$set(this.settings.actionDefinitions, keyString, {
+        type: type,
+        value: value
+      });
+
+      chrome.storage.sync.set({ settings: this.settings });
     }
   }
 });

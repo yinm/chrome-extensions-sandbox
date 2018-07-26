@@ -30,7 +30,7 @@
     methods: {
       onSubmit(e) {
         e.preventDefault()
-        this.$emit('child-on-submit', this.keyString, this.value)
+        this.$emit('child-on-submit', this.keyString, 'CopyToClipboard', this.value)
       },
 
       onKeyDown(e) {
