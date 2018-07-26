@@ -108,6 +108,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -115,7 +121,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'input-key-setting',
   data: function data() {
     return {
-      keyString: ''
+      keyString: '',
+      value: ''
     };
   },
 
@@ -125,6 +132,9 @@ __webpack_require__.r(__webpack_exports__);
       if (!keyString.includes('Unknown')) {
         this.keyString = keyString;
       }
+    },
+    onChange: function onChange(e) {
+      this.value = e.target.value;
     }
   }
 });
@@ -1013,6 +1023,17 @@ var render = function() {
           attrs: { type: "text", required: "" },
           domProps: { value: _vm.keyString },
           on: { keydown: _vm.onKeyDown }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("label", [
+        _vm._v("\n      Value\n      "),
+        _c("input", {
+          attrs: { type: "text", required: "" },
+          domProps: { value: _vm.value },
+          on: { change: _vm.onChange }
         })
       ])
     ])
