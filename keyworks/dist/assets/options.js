@@ -114,6 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -127,6 +128,10 @@ __webpack_require__.r(__webpack_exports__);
   },
 
   methods: {
+    onSubmit: function onSubmit(e) {
+      e.preventDefault();
+      this.$emit('child-on-submit', this.keyString, this.value);
+    },
     onKeyDown: function onKeyDown(e) {
       var keyString = Object(key_string__WEBPACK_IMPORTED_MODULE_0__["detectKeyString"])(e);
       if (!keyString.includes('Unknown')) {
@@ -250,6 +255,10 @@ __webpack_require__.r(__webpack_exports__);
     onDelete: function onDelete(keyString) {
       this.$delete(this.settings.actionDefinitions, keyString);
       chrome.storage.sync.set({ settings: this.settings });
+    },
+    onSubmit: function onSubmit(keyString, value) {
+      console.log(keyString);
+      console.log(value);
     }
   }
 });
@@ -1015,7 +1024,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", [
+  return _c("form", { on: { submit: _vm.onSubmit } }, [
     _c("div", [
       _c("label", [
         _vm._v("\n      Key\n      "),
@@ -1036,7 +1045,9 @@ var render = function() {
           on: { change: _vm.onChange }
         })
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c("input", { attrs: { type: "submit", value: "Add" } })
   ])
 }
 var staticRenderFns = []
@@ -1115,7 +1126,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("input-key-setting")
+      _c("input-key-setting", { on: { "child-on-submit": _vm.onSubmit } })
     ],
     1
   )

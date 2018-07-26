@@ -12,7 +12,7 @@
         />
       </tbody>
     </table>
-    <input-key-setting/>
+    <input-key-setting @child-on-submit="onSubmit" />
   </div>
 </template>
 
@@ -42,7 +42,12 @@
       onDelete(keyString) {
         this.$delete(this.settings.actionDefinitions, keyString)
         chrome.storage.sync.set({ settings: this.settings })
-      }
+      },
+
+      onSubmit(keyString, value) {
+        console.log(keyString)
+        console.log(value)
+      },
     }
   }
 </script>

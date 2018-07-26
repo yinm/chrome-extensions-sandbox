@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit="onSubmit">
     <div>
       <label>
         Key
@@ -12,6 +12,7 @@
         <input type="text" @change="onChange" :value="value" required />
       </label>
     </div>
+    <input type="submit" value="Add"/>
   </form>
 </template>
 
@@ -27,6 +28,11 @@
       }
     },
     methods: {
+      onSubmit(e) {
+        e.preventDefault()
+        this.$emit('child-on-submit', this.keyString, this.value)
+      },
+
       onKeyDown(e) {
         const keyString = detectKeyString(e)
         if (!keyString.includes('Unknown')) {
