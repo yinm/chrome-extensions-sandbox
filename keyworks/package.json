@@ -1,9 +1,11 @@
 {
   "scripts": {
+    "dev": "npm run build:clean && npm run build:copy && npm run build:webpack:dev",
     "build": "npm run build:clean && npm run build:copy && npm run build:webpack",
     "build:clean": "rm -rf ./dist || true && mkdir -p ./dist",
     "build:copy": "cp -r ./src/images ./src/manifest.json ./src/options.html ./dist",
-    "build:webpack": "webpack"
+    "build:webpack": "webpack",
+    "build:webpack:dev": "webpack --mode development --watch"
   },
   "dependencies": {
     "key-string": "^0.4.0",
