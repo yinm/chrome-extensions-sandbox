@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ message }}
+    <Header />
     <table>
       <tbody>
         <key-setting
@@ -17,19 +17,20 @@
 </template>
 
 <script>
+  import Header from './Header'
   import KeySetting from './KeySetting'
   import InputKeySetting from './InputKeySetting'
 
   export default {
     data() {
       return {
-        message: 'Hello Vue',
         settings: {
           actionDefinitions: {},
         },
       }
     },
     components: {
+      Header,
       InputKeySetting,
       'key-setting': KeySetting
     },
@@ -62,6 +63,6 @@
 
 <style>
   div {
-    color: #f0f;
+    background-color: #ddd;
   }
 </style>
