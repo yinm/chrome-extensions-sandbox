@@ -6,7 +6,11 @@
   },
   "extends": [
     "eslint:recommended",
+    "plugin:vue/recommended",
     "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "vue"
   ],
   "parserOptions": {
     "ecmaVersion": 2015,
